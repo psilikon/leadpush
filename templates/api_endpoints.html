@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block title %}API endpoints{% endblock %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/api_endpoints_funcs.js') }}"></script>
+<h2>API endpoints Page</h2>
+<div>
+    <table>
+        <tr>
+            <td>Datasets</td>
+            <td>
+                <select id="datasets">
+                    <option value="">-- --</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="dataset_details"></div>
+<div id="vicidial">
+    <table>
+        <tr>
+            <td id="vicidial_button"><input type="button" id="push_to_vicidial" name="push_to_vicidial" value="Push to Vicidial"></td>
+        </tr>
+    </table>
+</div>
+<div id="simpletexting">
+    <p>SMS</p>
+    <input class="sms_agent" type="checkbox" id="krissy" name="krissy" value="3526186001">
+    <label for="krissy">Krissy  (352) 618-6001</label><br>
+    <input class="sms_agent" type="checkbox" id="mobile" name="mobile" value="7272920506">
+    <label for="mobile">Mobile  (727) 292-0506</label><br>
+    <input class="sms_agent" type="checkbox" id="murph" name="murph" value="8665542362">
+    <label for="murph">Murph    (866) 554-2362</label><br>
+    <input class="sms_agent" type="checkbox" id="nick" name="nick" value="8137265702">
+    <label for="nick">Nick  (813) 726-5702</label><br>
+    <input class="sms_agent" type="checkbox" id="sean" name="sean" value="7273827752">
+    <label for="sean">Sean  (727) 382-7752</label><br>
+    <input class="sms_agent" type="checkbox" id="sean" name="sean" value="8334563070">
+    <label for="sean">Alex  (833) 456-3070</label><br>
+    <table>
+        <td>
+            <select id="sms_template_time" name="sms_template_time">
+                <option value="">-- --</option>
+                <option value="ANYTIME">Anytime</option>
+                <option value="MORNING">Morning</option>
+                <option value="AFTERNOON">Afternoon</option>
+            </select>
+        </td>
+        <tr>
+            <td id="create_sms_lists_button"><input type="button" id="create_sms_lists" name="create_sms_lists" value="Send Campaigns"></td>
+        </tr>
+    </table>
+</div>
+<div id="emailing">
+    <p>Email</p>
+    <input class="email_agent" type="checkbox" id="krissy" name="krissy" value="3526186001">
+    <label for="krissy">Krissy  (352) 618-6001</label><br>
+    <input class="email_agent" type="checkbox" id="mobile" name="mobile" value="7272920506">
+    <label for="mobile">Mobile  (727) 292-0506</label><br>
+    <input class="email_agent" type="checkbox" id="murph" name="murph" value="2393654433">
+    <label for="murph">Murph    (239) 365-4433</label><br>
+    <input class="email_agent" type="checkbox" id="nick" name="nick" value="8137265702">
+    <label for="nick">Nick  (813) 726-5702</label><br>
+    <input class="email_agent" type="checkbox" id="sean" name="sean" value="7273827752">
+    <label for="sean">Sean  (727) 382-7752</label><br>
+    <table>
+        <tr>
+            <td id="email_lists_button"><input type="button" id="email_lists" name="email_lists" value="Create Email contact lists"></td>
+        </tr>
+    </table>
+</div>
+<div id="vmdrops">
+    <p>Voicemail</p>
+    <table>
+        <tr>
+            <td>Drop Campaign</td>
+            <td>
+                <select id="vmdrop_campaign">
+                    <option value="">-- --</option>
+                    <option value="MORNING">Morning</option>
+                    <option value="AFTERNOON">Afternoon</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td id="vmdrop_push"><input type="button" id="vmdrop_push" name="vmdrop_push" value="Push to Drop.Co"></td>
+        </tr>
+    </table>
+</div>
+<div id="vici_push_output"></div>
+<div id="sms_push_output"></div>
+<div id="vmdrop_output"></div>
+<div id="loader" name="loader"></div>
+{% endblock %}

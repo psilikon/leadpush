@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}INVENTORY{% endblock %}
+{% block content %}
+<script src="{{ url_for('static', filename='js/dataset_inventory_funcs.js') }}"></script>
+<h2>Dataset Inventory</h2>
+<div>
+    <label for="datasets">Datasets</label>
+    <select id="datasets" name="datasets">
+        <option value="">-- --</option>
+    </select>
+</div>
+<div id="dataset_details" name="dataset_details"></div>
+<table id="dataset_table" class="table table-striped">
+    <thead>
+      <tr>
+        <th>APN</th>
+        <th>STATE</th>
+        <th>COUNTY</th>
+        <th>ACREAGE</th>
+        <th>PHONE</th>
+        <th>LINE TYPE</th>
+        <th>EMAIL</th>
+        <th>FILENAME</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<div id="loader" name="loader"></div>
+{% endblock %}

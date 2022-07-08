@@ -1,0 +1,217 @@
+{% extends 'layout.html' %}
+{% block title %}CREATE DATASET{% endblock %}
+{% block content %}
+<script src="{{ url_for('static', filename='js/create_dataset_funcs.js') }}"></script>
+<h2>Create Dataset</h2>
+<div>
+    <p><h3>Filter parameters:</h3></p>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Value</td>
+            <td>Active</td>
+        </tr>
+        <tr>
+            <td>Filename</td>
+            <td>
+                <select  class="" id="filename_filter" name="filename_filter">
+                    <option value="" selected>--</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="filename_filter_active" name="filename_filter_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>
+                <select  class="" id="state_filter" name="state_filter">
+                    <option value="" selected>--</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="state_filter_active" name="state_filter_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>County</td>
+            <td>  
+                <select  class="" id="county_filter" name="county_filter">
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="county_filter_active" name="county_filter_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>Linetype</td>
+            <td>
+                <select  class="" id="linetype_filter" name="linetype_filter">
+                    <option value="MOBILE">MOBILE</option>
+                    <option value="LANDLINE">LAND</option>
+                    <option value="VOIP">VOIP</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="linetype_filter_active" name="linetype_filter_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>Phone Field</td>
+            <td>
+                <select  class="" id="phone_filter" name="phone_filter">
+                    <option value="POPULATED">POPULATED</option>
+                    <option value="EMPTY">EMPTY</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="phone_filter_active" name="phone_filter_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>Min Lot Acreage</td>
+            <td>
+                <input type="range"  class="" id="lot_acreage_filter_min" name="lot_acreage_filter_min" min="0" max="100">
+            </td>
+            <td>
+                <input type="checkbox" id="lot_acreage_filter_min_active" name="lot_acreage_filter_min_active" value="ACTIVE">
+            </td>
+            <td id="lot_acreage_filter_min_value">
+            </td>
+        </tr>
+        <tr>
+            <td>Max Lot Acreage</td>
+            <td>
+                <input type="range"  class="" id="lot_acreage_filter_max" name="lot_acreage_filter_max" min="1" max="1000" step="1">
+            </td>
+            <td>
+                <input type="checkbox" id="lot_acreage_filter_max_active" name="lot_acreage_filter_max_active" value="ACTIVE">
+            </td>
+            <td id="lot_acreage_filter_max_value">
+            </td>
+        </tr>
+        <tr>
+            <td>Dialer API Push count</td>
+            <td>
+                <select id="dialer_api_count">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="dialer_api_count_active" name="dialer_api_count_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>Email API Push count</td>
+            <td>
+                <select id="email_api_count">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="email_api_count_active" name="email_api_count_active" value="ACTIVE"> 
+            </td>
+        </tr>
+        <tr>
+            <td>SMS API Push count</td>
+            <td>
+                <select id="sms_api_count">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="sms_api_count_active" name="sms_api_count_active" value="ACTIVE"> 
+            </td>
+        </tr>
+        <tr>
+            <td>VM API Push count</td>
+            <td>
+                <select id="vm_api_count">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" id="vm_api_count_active" name="vm_api_count_active" value="ACTIVE">
+            </td>
+        </tr>
+        <tr>
+            <td>Records Qty.</td>
+            <td>
+                <input class="query" value="1000" type="range" id="record_quantity" name="record_quantity" min="1000" max="100000" step="100">
+            </td>
+            <td>
+            </td>
+            <td id="record_quantity_value">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="calculate" name="calculate" value="Calculate">
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>        
+</div>
+<div id="quantity_result" name="quantity_result"></div>
+<div id="write_dataset" name="write_dataset"></div>
+<div id="by_master_id">
+    <table>
+        <tr>
+            <td>Start Master Id: </td><td><input type="number" id="first_id"></td>
+        </tr>
+        <tr>
+            <td>End Master Id: </td><td><input type="number" id="last_id"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="calculate_by_ids" name="calculate_by_ids" value="Calculate By IDs">
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="write_dataset_by_ids"></div>
+<div id="loader" name="loader"></div>
+{% endblock %}

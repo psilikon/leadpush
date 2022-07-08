@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}Data Import{% endblock %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/data_import_funcs.js') }}"></script>
+<h2>Import Data to MasterDB</h2>
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            <hr>
+        {% endif %}
+        
+    {% endwith %}
+</div>
+<div>
+    <form action="{{ url_for('process_data_import') }}" method="POST" enctype="multipart/form-data">
+        <label for="file_upload">
+            <i class="fas fa-file-alt"></i>
+        </label>
+        <input type="file" name="file_upload" id="file_upload">
+        <br></br>
+        <br></br>
+        <label for="FLcheck">IMPORT QUERY: </label>
+        <select id="FLcheck" name="FLcheck">
+            <option value="--" selectyed>-- --</option>
+            <option value="OTHER">OTHER STATE</option>
+            <option value="FLORIDA">FLORIDA</option>
+        </select>
+        <input type="submit" value="Upload">
+    </form>
+</div>
+<div id="imported_files">
+    <h3>Imported files</h3>
+    <table id="filenames_table" class="res_table">
+    </table>
+</div>
+<div id="loader"></div>
+{% endblock %}
